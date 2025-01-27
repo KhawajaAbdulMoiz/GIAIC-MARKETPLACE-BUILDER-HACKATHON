@@ -5,13 +5,13 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import { apiVersion, dataset, projectId, token } from '../env';
 
-// Load environment variables from .env.local
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '../../.env.local') });
 
 
-// Create Sanity client
+
 const client = createClient({
   projectId,
   dataset,
