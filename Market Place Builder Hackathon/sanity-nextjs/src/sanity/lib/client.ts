@@ -1,4 +1,6 @@
-import { createClient } from "@sanity/client";
+
+import { createClient } from "next-sanity";
+
 
 export const sanityClient = createClient({
   projectId: 'tm81kbvj', 
