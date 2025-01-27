@@ -8,7 +8,7 @@ export default {
       type: 'string',
       title: 'ID',
       description: 'Unique identifier for the food item',
-      validation: (Rule: { required: () => { (): any; new(): any; error: { (arg0: string): any; new(): any; }; }; }) => Rule.required().error('ID is required'),
+      
     },
     {
       name: 'name',

@@ -8,7 +8,7 @@ export default {
         type: 'string',
         title: 'ID',
         description: 'Unique identifier for the blog post',
-        validation: (Rule: { required: () => { (): any; new(): any; error: { (arg0: string): any; new(): any; }; }; }) => Rule.required().error('ID is required'),
+       
       },
       {
         name: 'title',
@@ -33,7 +33,6 @@ export default {
         type: 'text',
         title: 'Content',
         description: 'Main content of the blog post',
-        validation: (Rule: { required: () => { (): any; new(): any; error: { (arg0: string): any; new(): any; }; }; }) => Rule.required().error('Content is required'),
       },
       {
         name: 'category',

@@ -20,22 +20,10 @@ const client = createClient({
   token,
 });
 
-async function uploadImages(images) {
-  try {
-    const uploadPromises = images.map((imageUrl) => uploadImageToSanity(imageUrl));
-    const imageRefs = await Promise.all(uploadPromises);
-    return imageRefs;
-  } catch (error) {
-    console.error('Error uploading images:', error);
-    return images.map(() => null);
-  }
-}
 
 async function importData() {
   try {
     console.log('Fetching food, chef data from API...');
-
-    // API endpoint containing  data
     const $Promise = [];
     $Promise.push(
       axios.get('https://sanity-nextjs-rouge.vercel.app/api/foods')

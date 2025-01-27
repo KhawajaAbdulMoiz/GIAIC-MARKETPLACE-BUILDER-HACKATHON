@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import { apiVersion, dataset, projectId, token } from '../env';
+
 
 export const sanityClient = createClient({
   projectId: 'tm81kbvj', 
@@ -10,6 +10,4 @@ export const sanityClient = createClient({
   
 });
 
-export async function sanityFetch({ query, params = {} }: { query: string; params?: any }) {
-  return await sanityClient.fetch(query, params);
-}
+
