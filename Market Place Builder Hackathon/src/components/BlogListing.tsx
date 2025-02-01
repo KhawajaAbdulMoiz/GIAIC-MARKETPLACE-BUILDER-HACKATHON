@@ -11,8 +11,6 @@ const BlogListing = () => {
   const [blogPosts, setBlogPosts] = useState<Blog[]>([]);
   const [comments, setComments] = useState<string[]>([]);
   const [comment, setComment] = useState<string>("");
-
-  // Fetch blog data from Sanity
   useEffect(() => {
     async function fetchBlogs() {
       try {
@@ -24,16 +22,12 @@ const BlogListing = () => {
     }
     fetchBlogs();
   }, []);
-
-  // Retrieve comments from localStorage (persist data)
   useEffect(() => {
     const savedComments = localStorage.getItem("comments");
     if (savedComments) {
       setComments(JSON.parse(savedComments));
     }
   }, []);
-
-  // Save comments to localStorage when comments change
   useEffect(() => {
     localStorage.setItem("comments", JSON.stringify(comments));
   }, [comments]);
