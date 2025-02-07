@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -17,19 +18,25 @@ const Checkout = () => {
     area: "",
     email: "",
   });
-  const [foodItems, setFoodItems] = useState<{ [key: string]: any }>({}); // Store multiple food items by ID
+  interface FoodItem {
+    _id: string;
+    name: string;
+    price: number;
+    image: string;
+  }
+  const [foodItems, setFoodItems] = useState<{ [key: string]: FoodItem}>({}); // Store multiple food items by ID
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
 
  
   useEffect(() => {
     const fetchFoodItems = async () => {
       if (cartItems.length > 0) {
-        const foodIds = cartItems.map((item) => item.id); // Gather food ids from cart items
+        const foodIds = cartItems.map((item) => item.id); 
         const fetchedFoodItems = await sanityClient.fetch(
           `*[_type == "food" && _id in $foodIds] { _id, name, price, image }`,
           { foodIds }
         );
-        const foodItemsMap = fetchedFoodItems.reduce((acc: any, food: any) => {
+        const foodItemsMap = fetchedFoodItems.reduce((acc: { [key: string]: FoodItem }, food: FoodItem) => {
           acc[food._id] = food;
           return acc;
         }, {});
