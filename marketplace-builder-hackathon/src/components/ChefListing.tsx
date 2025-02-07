@@ -17,7 +17,7 @@ const ChefListing = () => {
       try {
         const fetchedchef: Chef[] = await sanityClient.fetch(chefs);
         setChef(fetchedchef);
-        setFilteredChefs(fetchedchef); // Initialize the filtered chefs
+        setFilteredChefs(fetchedchef); 
       } catch (error) {
         console.error("Error fetching food items:", error);
       }
@@ -26,7 +26,7 @@ const ChefListing = () => {
   }, []);
 
   useEffect(() => {
-    // Filter chefs based on the search query
+    
     const results = chef.filter((c) =>
       c.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -35,7 +35,7 @@ const ChefListing = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+     
       <header className="relative bg-black">
         <div
           className="h-[300px] md:h-[400px] lg:h-[500px] bg-cover bg-center"

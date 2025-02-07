@@ -23,6 +23,7 @@ const ProductListing = () => {
         const fetchedFood: Food[] = await sanityClient.fetch(foods);
         setFood(fetchedFood);
         setFilteredFood(fetchedFood);
+        console.log("food",fetchedFood)
       } catch (error) {
         console.error("Error fetching food items:", error);
       }
@@ -51,7 +52,7 @@ const ProductListing = () => {
       price: item.price,
       quantity: 1,
       image: urlFor(item.image).url(),
-      id: 0,
+      id: item._id,
     });
     setPopupItem(item);
     setIsPopupOpen(true);

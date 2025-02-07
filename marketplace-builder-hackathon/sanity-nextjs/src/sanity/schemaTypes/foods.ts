@@ -4,13 +4,6 @@ export default {
   title: 'Food',
   fields: [
     {
-      name: 'id',
-      type: 'string',
-      title: 'ID',
-      description: 'Unique identifier for the food item',
-      
-    },
-    {
       name: 'name',
       type: 'string',
       title: 'Food Name',
@@ -19,8 +12,7 @@ export default {
       name: 'category',
       type: 'string',
       title: 'Category',
-      description:
-        'Category of the food item (e.g., Burger, Sandwich, Drink, etc.)',
+      description: 'Category of the food item (e.g., Burger, Sandwich, Drink, etc.)',
     },
     {
       name: 'price',
